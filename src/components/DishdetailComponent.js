@@ -6,6 +6,14 @@ class DishDetail extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        console.log("DishDetail Component componentDidMount invoked");
+    }
+
+    componentDidUpdate() {
+        console.log("DishDetail Component componentDidUpdate invoked");
+    }
+
     renderDish (selDish) {
         return (
             <Card className="col-12 col-md-5 m-1">
@@ -31,6 +39,7 @@ class DishDetail extends Component {
     }
 
     render () {
+        console.log("DishDetail Component render invoked");
         const selDish = this.props.dishSel;
         // https://coursera-assessments.s3.amazonaws.com/assessments/1655888367861/f6dd4118-a9e1-4082-94ae-66eaa6bd5ed7/DishdetailComponent.js
         if(selDish){
