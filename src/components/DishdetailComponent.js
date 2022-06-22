@@ -22,7 +22,7 @@ class DishDetail extends Component {
         let commentElem;
         if(comments) {
             commentElem = comments.map((comment) => { 
-                return ( <li key={comment.id}> <p>{comment.comment}</p> <p>-- {comment.author}, {comment.date}</p> </li> ) 
+                return ( <li key={comment.id}> <p>{comment.comment}</p> <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p> </li> ) 
             })
         } else {
             commentElem = <div></div>;
@@ -35,13 +35,15 @@ class DishDetail extends Component {
         // https://coursera-assessments.s3.amazonaws.com/assessments/1655888367861/f6dd4118-a9e1-4082-94ae-66eaa6bd5ed7/DishdetailComponent.js
         if(selDish){
             return (
-                <div className="row">
-                    {this.renderDish(selDish)}
-                    <div className="col-12 col-md-6 m-1">
-                        <h4>Comments</h4>
-                        <ul className = "list-unstyled">
-                            {this.renderComments(selDish.comments)}
-                        </ul>
+                <div className="container">
+                    <div className="row">
+                        {this.renderDish(selDish)}
+                        <div className="col-12 col-md-6 m-1">
+                            <h4>Comments</h4>
+                            <ul className = "list-unstyled">
+                                {this.renderComments(selDish.comments)}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             );
