@@ -55,7 +55,7 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
                                 <RenderComments comments={props.comments} />
                             </ul>
 
-                            <CommentForm />
+                            <CommentForm dishId={props.dish.id} addComment={props.addComment}/>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,8 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
         }
     
         handleSubmit(values) {
-            alert("current state: " + JSON.stringify(values));
+            // alert("current state: " + JSON.stringify(values));
+            this.props.addComment(this.props.dishId, values.rating, values.name, values.comment)
         }
     
         render() {
