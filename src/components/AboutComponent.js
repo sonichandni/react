@@ -2,22 +2,27 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from "../shared/baseUrl";
+import { Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader ({leader}) {
     console.log(leader);
     return (
-        <Media>
-            <Media left middle className='media'>
-                <Media object src={baseUrl + leader.image} className="img-thumbnail"/>
-                <Media body className='ml-5 media-body'>
-                    <Media heading>
-                        {leader.name} 
+        <Stagger in>
+            <Media>
+                <Fade in>
+                    <Media left middle className='media'>
+                        <Media object src={baseUrl + leader.image} className="img-thumbnail"/>
+                        <Media body className='ml-5 media-body'>
+                            <Media heading>
+                                {leader.name} 
+                            </Media>
+                            <p>{leader.designation}</p>
+                            <p>{leader.description}</p>
+                        </Media>
                     </Media>
-                    <p>{leader.designation}</p>
-                    <p>{leader.description}</p>
-                </Media>
+                </Fade>
             </Media>
-        </Media>
+        </Stagger>
     );
 }
 
